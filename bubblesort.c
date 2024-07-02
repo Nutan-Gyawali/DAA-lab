@@ -57,7 +57,9 @@ int main()
     bubbleSort(data, size);
 
     printf("Sorted Array in Ascending Order:\n");
-    printArray(data, size);
+
+        printArray(data, size);
+    printf("\nNAME: Nutan Gyawali \nRoll Number: 28387/078");
 
     return 0;
 }

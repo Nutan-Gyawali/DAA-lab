@@ -8,7 +8,11 @@ int main()
 
     // shows error if the user enters a negative integer
     if (n < 0)
+    {
         printf("Error! Factorial of a negative number doesn't exist.");
+        printf("\nNAME: Nutan Gyawali \nRoll Number: 28387/078");
+    }
+
     else
     {
         for (i = 1; i <= n; ++i)
@@ -16,6 +20,7 @@ int main()
             fact *= i;
         }
         printf("Factorial of %d = %llu", n, fact);
+        printf("\nNAME: Nutan Gyawali \nRoll Number: 28387/078");
     }
 
     return 0;

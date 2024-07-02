@@ -59,6 +59,7 @@ int main()
     // Print the sorted array
     printf("Sorted array: \n");
     printArray(arr, n);
+    printf("\nNAME: Nutan Gyawali \nRoll Number: 28387/078");
 
     return 0;
 }
