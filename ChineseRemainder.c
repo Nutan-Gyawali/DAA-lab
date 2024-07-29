@@ -26,6 +26,7 @@ int findX(int num[], int rem[], int k)
     {
         prod *= num[i];
     }
+
     int result = 0;
     for (int i = 0; i < k; i++)
     {
