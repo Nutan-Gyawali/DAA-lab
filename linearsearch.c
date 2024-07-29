@@ -45,9 +45,16 @@ int main(void)
     // Function call
     int result = search(arr, N, x);
     if (result == -1)
+    {
         printf("Element is not present in array\n");
+        printf("\nNAME: Nutan Gyawali \nRoll Number: 28387/078");
+    }
+
     else
+    {
         printf("Element is present at index %d\n", result);
+        printf("\nNAME: Nutan Gyawali \nRoll Number: 28387/078");
+    }
 
     return 0;
 }
