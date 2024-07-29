@@ -1,56 +1,44 @@
 #include <stdio.h>
-#include <stdio.h>
-int max, min;
-int a[100];
-void maxmin(int i, int j)
+void findMinMax(int arr[], int low, int high, int *min, int *max)
 {
-    int max1, min1, mid;
-    if (i == j)
+    if (low == high)
     {
-        max = min = a[i];
+        *min = arr[low];
+        *max = arr[low];
+        return;
     }
-    else
+    if (high - low == 1)
     {
-        if (i == j - 1)
+        if (arr[low] < arr[high])
         {
-            if (a[i] < a[j])
-            {
-                max = a[j];
-                min = a[i];
-            }
-            else
-            {
-                max = a[i];
-                min = a[j];
-            }
+            *min = arr[low];
+            *max = arr[high];
         }
         else
         {
-            mid = (i + j) / 2;
-            maxmin(i, mid);
-            max1 = max;
-            min1 = min;
-            maxmin(mid + 1, j);
-            if (max < max1)
-                max = max1;
-            if (min > min1)
-                min = min1;
+            *min = arr[high];
+            *max = arr[low];
         }
+        return;
     }
+    int mid = (low + high) / 2;
+    int leftMin, leftMax, rightMin, rightMax;
+    findMinMax(arr, low, mid, &leftMin, &leftMax);
+    findMinMax(arr, mid + 1, high, &rightMin, &rightMax);
+    *min = (leftMin < rightMin) ? leftMin : rightMin;
+    *max = (leftMax > rightMax) ? leftMax : rightMax;
 }
 int main()
 {
-    int i, num;
-    printf("\nEnter the total number of numbers : ");
-    scanf("%d", &num);
-    printf("Enter the numbers : \n");
-    for (i = 1; i <= num; i++)
-        scanf("%d", &a[i]);
-
-    max = a[0];
-    min = a[0];
-    maxmin(1, num);
-    printf("Minimum element in an array : %d\n", min);
-    printf("Maximum element in an array : %d\n", max);
+    int arr[] = {10, 34, 56, 24, 11, 91};
+    for (int i = 0; i <= 5; i++)
+    {
+        printf("%d\t", arr[i]);
+    }
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int min, max;
+    findMinMax(arr, 0, n - 1, &min, &max);
+    printf(" \n Minimum element is %d\n", min);
+    printf("Maximum element is %d\n", max);
     return 0;
 }
